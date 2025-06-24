@@ -1,0 +1,4 @@
+== API Specification and Documentation for the eAkte DMS Interface
+
+This repository contains the API specification and the maven build recipes
+for the generation of a couple of documentation formats and Java libraries.
