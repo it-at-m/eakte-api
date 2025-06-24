@@ -2,3 +2,7 @@
 
 This repository contains the API specification and the maven build recipes
 for the generation of a couple of documentation formats and Java libraries.
+
+Visit the entry page of the documentation at the followin URL:
+
+https://it-at-m.github.io/eakte-api/[https://it-at-m.github.io/eakte-api/]
