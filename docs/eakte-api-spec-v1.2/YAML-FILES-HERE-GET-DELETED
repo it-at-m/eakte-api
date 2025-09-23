@@ -1,0 +1,2 @@
+
+Note that *.yaml files in this directory will get deleted when executing "mvn clean"

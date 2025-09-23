@@ -1,0 +1,38 @@
+components:
+  schemas:
+    CreateFileDTO:
+      required:
+        - apentry
+      type: object
+      properties:
+        shortname:
+          type: string
+          description: Titel
+          example: 2016 Anträge Firma XY
+        filesubj:
+          type: string
+          description: |2
+                      Betreff (mehrzeilig)
+                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
+          example: Alle Anträge der Firma XY aus dem Jahr 2016
+        objterms:
+          type: string
+          description: >-
+            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
+            am Ende angeben.
+          example: Firma XY; Anträge; Anträge 2016
+        accdef:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
+        apentry:
+          type: string
+          description: Aktenplankennzeichen Objekt-ID
+          example: COO.1.2301.1.683
+        fileruntimefrom:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimefrom'
+        fileruntimetill:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimetill'
+        fileouobj:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileouobj'
+        procedureaccdef:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/procedureaccdef'
+

@@ -1,0 +1,134 @@
+components:
+  schemas:
+
+    ReadProcedureResponseDTO:
+      required:
+        - referrednumber
+      type: object
+      properties:
+        shortname:
+          type: string
+          description: Titel
+          example: 2016 Anträge Firma XY
+        filesubj:
+          type: string
+          description: |2
+                      Betreff (mehrzeilig)
+                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
+          example: Alle Anträge der Firma XY aus dem Jahr 2016
+        objterms:
+          type: string
+          description: >-
+            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
+            am Ende angeben.
+          example: Firma XY; Anträge; Anträge 2016
+        accdef:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
+        fileruntimefrom:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimefrom'
+        fileruntimetill:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimetill'
+        procremark:
+          type: string
+          description: Bemerkung für Prozessverantwortliche
+          example: Warte auf Rückmeldung
+        referrednumber:
+          type: string
+          description: Objekt-ID (COO-Adresse) der Sachakte
+          example: COO.1.2301.1.1042406
+        filetype:
+          type: string
+          description: |2
+              Art des Vorgangs
+              Einer der drei fest definierten Werte:
+              * Elektronisch
+              * Papier
+              * Hybrid.
+          example: Elektronisch
+        objname:
+          type: string
+          description: Vorgangskennzeichen
+          example: Anfrage Baugenehmigung (0010 A20 011-4-0006)
+        objdocstate:
+          type: string
+          description: Status
+          example: In Bearbeitung
+        bostate:
+          type: string
+          description: Bearbeitungsstatus
+          example: Erstellt
+        objowngroup:
+          type: string
+          description: Objektname der zuständigen OE
+          example: SG A1 0001 (Sachgebiet A1 0001)
+        giobjecttype:
+          type: array
+          description: 'Auflistung aller Objekte, auf die der Suchstring zutrifft.'
+          example:
+            - name: Beispielname
+              id: COO.2150.9151.1.1206000
+          items:
+            $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Objektreferenz'
+
+    UpdateProcedureDTO:
+      type: object
+      properties:
+        shortname:
+          type: string
+          description: Titel
+          example: 2016 Anträge Firma XY
+        filesubj:
+          type: string
+          description: |2
+                      Betreff (mehrzeilig)
+                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
+          example: Alle Anträge der Firma XY aus dem Jahr 2016
+        objterms:
+          type: string
+          description: >-
+            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
+            am Ende angeben.
+          example: Firma XY; Anträge; Anträge 2016
+        accdef:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
+        fileruntimefrom:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimefrom'
+        fileruntimetill:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimetill'
+        procremark:
+          type: string
+          description: Bemerkung für Prozessverantwortliche
+          example: Warte auf Rückmeldung
+        filetype:
+          type: string
+          description: |2
+              Art des Vorgangs
+              Einer der drei kann beim Anlegen eines Vorgangs übergeben werden:
+              * Elektronisch
+              * Papier
+              * Hybrid.
+              Sofern hier ein falscher Wert oder kein Wert angegeben wird,
+              ändert sich der bestehende Wert des Vorgangs nicht.
+              Dies hat keine Auswirkung auf die weiteren zu ändernden Metadaten.
+          example: Elektronisch
+        filearchivetimeOffltdeadline:
+          type: string
+          description: Archivierung
+          example: 10 Jahre
+        filelifetimeOffltdeadline:
+          type: string
+          description: Lebenszeit der Akte
+          example: 10 Jahre
+        offltdispstate:
+          type: string
+          description: >-
+            Gewünschte Aussonderungsart,*            * „DISPSTATE_ARCHIVE“ - für „ A - Archivwürdig“
+
+            * „DISPSTATE_TRANSFER“ - für„Transfer“
+
+            * „DISPSTATE_DESTROY“ - für „ V - Vernichten“
+
+            * „DISPSTATE_TRANSFER_NO_EVIDENCE“ für „ Sammlungsgut“
+
+            * „DISPSTATE_DM_B“ für „ B - Bewerten“
+          example: DISPSTATE_ARCHIVE

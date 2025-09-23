@@ -1,0 +1,153 @@
+components:
+  schemas:
+
+    ArrayOfstring:
+      type: object
+      properties:
+        string:
+          type: array
+          items:
+            type: string
+
+    AttachmentType:
+      type: object
+      properties:
+        fileName:
+          type: string
+        fileExtention:
+          type: string
+        fileContent:
+          type: string
+        fileContsize:
+          type: string
+        filesubj:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/ArrayOfstring'
+
+    DmsObjektResponse:
+      type: object
+      properties:
+        objid:
+          type: string
+        objname:
+          type: string
+
+    DmsErrorResponse:
+      type: object
+      properties:
+        fehlerQuelle:
+          type: string
+          enum:
+            - INTERN
+            - DMS
+        status:
+          type: integer
+          format: int32
+        text:
+          type: string
+
+    MetadataReferenz:
+      type: object
+      properties:
+        objaddress:
+          type: string
+        filename:
+          type: string
+        fileextension:
+          type: string
+        objclass:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/objclass'
+        contsize:
+          type: string
+        objcreatedby:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/ArrayOfstring'
+        objcreatedat:
+          type: string
+          format: date-time
+        objchangedby:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/ArrayOfstring'
+        objmodifiedat:
+          type: string
+          format: date-time
+
+    Zugriffsdefinition:
+      type: string
+      description: |
+        Zugriffsdefinition
+
+        Eindeutiger Name der Zugriffsdefinition. z.B.:
+
+        * Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)
+        * Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit
+        * Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit und Zentralregistratur
+        * Zugriffsdefinition für Schriftgutobjekte des Eigentümers
+
+        Hinweis: Hierbei kann die gewünschte Zugriffsdefinition der Akte
+        gesetzt werden. Wenn kein Wert übergeben wird, wird die auf dem
+        Aktenplaneintrag hinterlegte Zugriffsdefinition initialisiert.
+      example: Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)
+
+    Objektreferenz:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: string
+      description: |-
+        Vorgänge
+        Liste der Vorgänge der Akte
+      example:
+        - name: Beispielname
+          id: COO.2150.9151.1.1206000
+
+    fileruntimefrom:
+      type: string
+      description: Laufzeitbeginn
+      format: date-time
+      example: '2017-01-13T17:09:42.411+01:00'
+
+    fileruntimetill:
+      type: string
+      description: Laufzeitende
+      format: date-time
+      example: '2017-01-13T17:09:42.411+01:00'
+
+    objclass:
+      type: string
+      description: |
+        Name der Objektklasse
+        (COOSYSTEM@1.1:objclass)
+      example: Ausgang
+
+    fileouobj:
+      type: string
+      description: >-
+        Objekt-ID (COO-Adresse) der aktenführenden Organisationseinheit.
+
+        Als Organisationseinheit der Akte wird die Organisationseinheit des
+        darüber liegenden Aktenplankennzeichens gesetzt.
+
+        Sofern keine Organisationseinheit auf dem Aktenplankennzeichen
+        definiert ist, wird die Organisationseinheit der ersten Rolle des
+        Benutzers verwendet.
+      example: COO.1.2300.1.847
+
+    procedureaccdef:
+      type: string
+      description: >-
+        Zugriffsdefinition für Vorgänge
+
+        Eindeutiger Name der Zugriffsdefinition. z.B.:
+
+        * Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)
+
+        * Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit
+
+        * Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit
+        und Zentralregistratur
+
+        * Zugriffsdefinition für Schriftgutobjekte des Eigentümers
+
+        Über diese Eigenschaft wird definiert welche Zugriffsdefinition beim
+        Anlegen eines neuen Vorgangs verwendet wird.
+      example: Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit

@@ -1,0 +1,174 @@
+openapi: 3.0.0
+
+info:
+  title: DMS REST API
+  description: REST-API for the eAkte Service
+  version: '1.2'
+
+  # preliminary/dummy information:
+  contact:
+    name: API Support
+    url: http://www.example.com/support
+    email: support@example.com
+
+  # preliminary/dummy information:
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: /api
+
+tags:
+  - name: /accessDefinitions
+  - name: /addAddressees
+  - name: /addressee
+  - name: /apentries
+  - name: /businessDataValue
+  - name: /cancelObjects
+  - name: /contentObjectMetaData
+  - name: /contentObjects
+  - name: /depositObjects
+  - name: /disposalScheduleDates
+  - name: /documentObjects
+  - name: /files
+  - name: /incomingFromInbox
+  - name: /incomings
+  - name: /internal
+  - name: /objectAndImportToInbox
+  - name: /outgoings
+  - name: /procedureObjects
+  - name: /procedures
+  - name: /proceduresFromTemplate
+  - name: /reAssignObject
+  - name: /readDocumentObjectsMetaData
+  - name: /revokeDepositObjects
+  - name: /searchObjNames
+  - name: /setSignatureObjects
+  - name: /startWorkflows
+  - name: /subjectAreaFileObjects
+  - name: /subjectAreaUnits
+  - name: /subjectAreas
+
+components:
+  securitySchemes:
+    basicAuth:
+      $ref: './eakte-api--securitySchemes.yaml#/components/securitySchemes/basicAuth'
+    bearerAuth:
+      $ref: './eakte-api--securitySchemes.yaml#/components/securitySchemes/bearerAuth'
+
+security:
+  - basicAuth: []
+
+paths:
+
+  '/addAddressees/{objaddress}':
+    $ref: 'eakte-api-addAddressees-path.yaml'
+
+  '/addressee/{objaddress}':
+    $ref: 'eakte-api-addressee-path.yaml'
+
+  '/files/{objaddress}':
+    $ref: 'eakte-api-file_@addr-path.yaml'
+
+  '/files':
+    $ref: 'eakte-api-files-path.yaml'
+
+  /files/complete:
+    $ref: 'eakte-api-files_complete-path.yaml'
+
+  '/apentries/{objaddress}':
+    $ref: 'eakte-api-apentries_@addr-path.yaml'
+
+  '/subjectAreaFileObjects/{objaddress}':
+    $ref: 'eakte-api-subjectAreaFileObjects_@addr-path.yaml'
+
+  '/subjectAreaUnits':
+    $ref: 'eakte-api-subjectAreaUnits-path.yaml'
+
+  '/businessDataValue/{objaddress}':
+    $ref: 'eakte-api-businessDataValue_@addr-path.yaml'
+
+  '/depositObjects/{objaddress}':
+    $ref: 'eakte-api-depositObjects_@addr-path.yaml'
+
+  '/revokeDepositObjects/{objaddress}':
+    $ref: 'eakte-api-revokeDepositObjects_@addr-path.yaml'
+
+  '/disposalScheduleDates/{objaddress}':
+    $ref: 'eakte-api-disposalScheduleDates_@addr-path.yaml'
+
+  /incomingFromInbox:
+    $ref: 'eakte-api-incomingFromMailBox-path.yaml'
+
+  /objectAndImportToInbox:
+    $ref: 'eakte-api-objectAndImportToInbox-path.yaml'
+
+  '/readDocumentObjectsMetaData/{objaddress}':
+    $ref: 'eakte-api-readDocumentObjectsMetaData_@addr-path.yaml'
+
+  '/documentObjects/{objaddress}':
+    $ref: 'eakte-api-documentObjects_@addr-path.yaml'
+
+  '/procedureObjects/{objaddress}':
+    $ref: 'eakte-api-procedureObjects_@addr-path.yaml'
+
+  '/subjectAreas/{objaddress}':
+    $ref: 'eakte-api-subjectAreas_@addr-path.yaml'
+
+  '/reAssignObject/{objaddress}':
+    $ref: 'eakte-api-reassignObject_@addr-path.yaml'
+
+  '/accessDefinitions/{objaddress}':
+    $ref: 'eakte-api-accessDefinitions_@addr-path.yaml'
+
+  '/contentObjects/{objaddress}':
+    $ref: 'eakte-api-contentObjects_@addr-path.yaml'
+
+  '/contentObjects':
+    $ref: 'eakte-api-contentObjects-path.yaml'
+
+  '/outgoings':
+    $ref: 'eakte-api-outgoings-path.yaml'
+
+  '/outgoings/{objaddress}':
+    $ref: 'eakte-api-outgoings_@addr-path.yaml'
+
+  '/incomings/{objaddress}':
+    $ref: 'eakte-api-incomings_@addr-path.yaml'
+
+  '/incomings':
+    $ref: 'eakte-api-incomings-path.yaml'
+
+  '/internal':
+    $ref: 'eakte-api-internal-path.yaml'
+
+  '/contentObjectMetaData/{objaddress}':
+    $ref: 'eakte-api-contentObjectMetaData_@addr-path.yaml'
+
+  '/cancelObjects/{objaddress}':
+    $ref: 'eakte-api-cancelObjects_@addr-path.yaml'
+
+  '/apentries/search':
+    $ref: 'eakte-api-apentries_search-path.yaml'
+
+  '/searchObjNames/search':
+    $ref: 'eakte-api-searchObjNames_search-path.yaml'
+
+  '/setSignatureObjects/{objaddress}':
+    $ref: 'eakte-api-setSignatureObjects_@addr-path.yaml'
+
+  '/startWorkflows/{objaddress}':
+    $ref: 'eakte-api-startWorkflows_@addr-path.yaml'
+
+  '/procedures/{objaddress}':
+    $ref: 'eakte-api-procedures_@addr-path.yaml'
+
+  '/procedures':
+    $ref: 'eakte-api-procedures-path.yaml'
+
+  '/procedures/complete':
+    $ref: 'eakte-api-procedures_complete-path.yaml'
+
+  '/proceduresFromTemplate':
+    $ref: 'eakte-api-proceduresFromTemplate-path.yaml'

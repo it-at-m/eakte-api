@@ -1,0 +1,50 @@
+components:
+  schemas:
+
+    CreateProcedureDTO:
+      required:
+        - referrednumber
+      type: object
+      properties:
+        shortname:
+          type: string
+          description: Titel
+          example: 2016 Anträge Firma XY
+        filesubj:
+          type: string
+          description: |2
+                      Betreff (mehrzeilig)
+                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
+          example: Alle Anträge der Firma XY aus dem Jahr 2016
+        objterms:
+          type: string
+          description: >-
+            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
+            am Ende angeben.
+          example: Firma XY; Anträge; Anträge 2016
+        accdef:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
+        fileruntimefrom:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimefrom'
+        fileruntimetill:
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileruntimetill'
+        procremark:
+          type: string
+          description: Bemerkung für Prozessverantwortliche
+          example: Warte auf Rückmeldung
+        referrednumber:
+          type: string
+          description: Objekt-ID (COO-Adresse) der Sachakte
+          example: COO.1.2301.1.1042406
+        filetype:
+          type: string
+          description: |2
+              Art des Vorgangs
+              Einer der drei kann beim Anlegen eines Vorgangs übergeben werden:
+              * Elektronisch
+              * Papier
+              * Hybrid.
+              Wird ein falscher Wert angegeben, wird eine Fehlermeldung zurückgegeben:
+              Status -1 und "Art des Vorgangs" enthält einen ungültigen Wert.“
+              Wenn kein Wert eingetragen wird, wird „Elektronisch“ hinterlegt.
+          example: Elektronisch

@@ -1,0 +1,24 @@
+components:
+  schemas:
+
+    SetDisposalScheduleDateAnfrageDTO:
+      required:
+        - offltscheduled
+      type: object
+      properties:
+        offltscheduled:
+          type: string
+          description: Datum bei der vorgesehenen Aufbewahrungsfrist bei Aufbewahrung
+          format: date-time
+
+    SetDisposalScheduleDateAntwortDTO:
+      type: object
+      properties:
+        objid:
+          type: string
+          description: Objekt-ID (COO-Adresse) des Objekts
+          example: COO.1.2301.1.1042441
+        objname:
+          type: string
+          description: Objektname des Objekts
+          example: Eingangspost vom 21.10.2016 (0010 A20 011-4-0006-0001)

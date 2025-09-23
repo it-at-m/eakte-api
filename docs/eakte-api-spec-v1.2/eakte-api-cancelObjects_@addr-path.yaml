@@ -1,0 +1,21 @@
+parameters:
+  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
+put:
+  tags:
+    - /cancelObjects
+  summary: Schriftstück stornieren
+  operationId: CancelObject
+  parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/objaddress'
+  responses:
+    '204':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/204'
+    '400':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
+    '401':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
+    '500':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/500'
