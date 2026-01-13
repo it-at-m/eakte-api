@@ -5,13 +5,13 @@ components:
     x_anwendung:
       name: x-anwendung
       in: header
-      description: "\n
-        **Aufrufende Fachanwendung**\n
+      description: |
+        **Aufrufende Fachanwendung**\
         Für jeden Aufruf soll ersichtlich sein, welche Fachanwendung den Aufruf getätigt hat. Dies soll es 
         ermöglichen, Requests und Responses den entsprechenden Fachverfahren zuzuordnen. Für diesen Zweck wird 
-        sowohl im Request, als auch im Response ein Parameter „buisinessapp“ angegeben. Dieser Parameter ist 
-        optional und kann mit einem Namen befüllt werden. Sofern der Aufruf einen Wert enthält, wird dieser auch 
-        im Response zurückgegeben. Somit ist ein nachträgliches Filtern von Aufrufen möglich.\n"
+        sowohl im Request, als auch im Response ein Parameter „businessapp“ angegeben.\
+        Dieser Parameter ist optional und kann mit einem Namen befüllt werden. Sofern der Aufruf einen Wert enthält, wird dieser auch 
+        im Response zurückgegeben. Somit ist ein nachträgliches Filtern von Aufrufen möglich.
       required: false
       schema:
         type: string
@@ -20,10 +20,9 @@ components:
     userlogin:
       name: userlogin
       in: header
-      description: >-
-        Benutzer-Login
-        (Benutzer-Kontext für den SOAP-Aufruf)
-
+      description: |
+        **Benutzer-Login** (Benutzer-Kontext für den SOAP-Aufruf)\
+        \
         Log-in-Name des Benutzerobjekts
       required: false
       schema:
@@ -33,10 +32,10 @@ components:
     joboe:
       name: joboe
       in: header
-      description: |- 
-        COO-Adresse der zu verwendenden Organisationseinheit des angemeldeten Nutzers
-        
-        Die OE ist dann wichtig anzugeben, wenn der Nutzer in mehreren OEs zugeordnet ist. 
+      description: |
+        COO-Adresse der zu verwendenden **Organisationseinheit** des angemeldeten Nutzers.\
+        \
+        Die OE ist dann wichtig anzugeben, wenn der Nutzer in mehreren OEs zugeordnet ist.\
         Über diese OE wird der Mandant zugeordnet und entsprechend die Berechtigungen geprüft.
       required: false
       schema:
@@ -47,10 +46,11 @@ components:
       name: jobposition
       in: header
       description: |
-        Einfache Referenz der Stelle (Rolle des Nutzers in der eAkte)
-
+        Einfache Referenz der Stelle (**Rolle des Nutzers** in der eAkte).\
+        \
         Anmerkung: Den Fachverfahrensanbietern dürfen ausschließlich die 
-        gewünschten Stellen genannt werden. Rolle Fachadministrator ist bei Schnittstellen nicht erlaubt.
+        gewünschten Stellen genannt werden.\
+        Rolle Fachadministrator ist bei Schnittstellen nicht erlaubt.
       required: false
       schema:
         type: string
