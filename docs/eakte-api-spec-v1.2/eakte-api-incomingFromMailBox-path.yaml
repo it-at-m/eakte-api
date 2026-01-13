@@ -1,13 +1,14 @@
-parameters:
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
+
 post:
   tags:
     - /incomingFromInbox
   summary: Erfassen eines Eingangs aus dem Postkorb
   operationId: CreateIncomingFromInbox
+  parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
   requestBody:
     content:
       application/json:

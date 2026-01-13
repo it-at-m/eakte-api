@@ -1,14 +1,13 @@
-parameters:
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
-
 post:
   tags:
     - /files
   summary: Anlegen einer kompletten Akte
   operationId: CreateCompleteFile
+  parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
   requestBody:
     content:
       multipart/form-data:

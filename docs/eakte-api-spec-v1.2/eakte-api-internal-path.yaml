@@ -1,13 +1,13 @@
-parameters:
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
 post:
   tags:
     - /internal
   summary: Anlegen eines internen Dokuments
   operationId: CreateInternal
+  parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
   requestBody:
     content:
       multipart/form-data:

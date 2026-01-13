@@ -1,15 +1,13 @@
-parameters:
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
-
 get:
   tags:
     - /addressee
   summary: Auslesen der Freitextadressaten bei Dokumenten oder Vorgängen
   operationId: GetAddressee
   parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/objaddress'
   responses:
     '204':

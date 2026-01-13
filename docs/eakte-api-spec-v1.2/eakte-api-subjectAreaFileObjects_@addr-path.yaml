@@ -1,14 +1,13 @@
-parameters:
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
-  - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
 get:
   tags:
     - /subjectAreaFileObjects
   summary: Liste von Vorgängen auslesen
   operationId: ReadSubjectAreaFile
   parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/propdocstate'
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/propbostate'
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/objaddress'

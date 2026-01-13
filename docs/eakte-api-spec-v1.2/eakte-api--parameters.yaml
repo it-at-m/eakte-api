@@ -7,9 +7,11 @@ components:
       in: header
       description: |
         **Aufrufende Fachanwendung**\
+        \
         Für jeden Aufruf soll ersichtlich sein, welche Fachanwendung den Aufruf getätigt hat. Dies soll es 
         ermöglichen, Requests und Responses den entsprechenden Fachverfahren zuzuordnen. Für diesen Zweck wird 
         sowohl im Request, als auch im Response ein Parameter „businessapp“ angegeben.\
+        \
         Dieser Parameter ist optional und kann mit einem Namen befüllt werden. Sofern der Aufruf einen Wert enthält, wird dieser auch 
         im Response zurückgegeben. Somit ist ein nachträgliches Filtern von Aufrufen möglich.
       required: false
