@@ -1,0 +1,7 @@
+== Fragen zur Schnittstellendokumentation an Fabasoft
+
+=== Anmeldedaten
+
+* jobposition: Welche Werte können übergeben werden (z.B. Sachbearbeiter, DocumentManager?)
+* Was genau ist damit gemeint: Den Fachverfahrensanbietern dürfen ausschließlich die
+gewünschten Stellen genannt werden?

@@ -33,7 +33,11 @@ components:
     joboe:
       name: joboe
       in: header
-      description: COO-ID der Organisationseinheit des Nutzers
+      description: |- 
+        COO-Adresse der zu verwendenden Organisationseinheit des angemeldeten Nutzers
+        
+        Die OE ist dann wichtig anzugeben, wenn der Nutzer in mehreren OEs zugeordnet ist. 
+        Über diese OE wird der Mandant zugeordnet und entsprechend die Berechtigungen geprüft.
       required: false
       schema:
         type: string
@@ -43,10 +47,10 @@ components:
       name: jobposition
       in: header
       description: |
-        Einfache Referenz der Stelle
+        Einfache Referenz der Stelle (Rolle des Nutzers in der eAkte)
 
-        Anmerkung: Den Fachverfahrensanbietern, dürfen ausschließlich die 
-        gewünschten Stellen genannt werden.
+        Anmerkung: Den Fachverfahrensanbietern dürfen ausschließlich die 
+        gewünschten Stellen genannt werden. Rolle Fachadministrator ist bei Schnittstellen nicht erlaubt.
       required: false
       schema:
         type: string
