@@ -8,9 +8,8 @@ components:
       properties:
         newtarget:
           type: string
-          description: >-
-            COO-Adresse des neuen darüberliegenden Objektes (Betreffseinheit
-            oder Akte)
+          description: |
+            COO-Adresse des neuen darüberliegenden Objektes (Betreffseinheit oder Akte)
           example: COO.1.2302.1.76
         newoe:
           type: string

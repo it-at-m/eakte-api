@@ -24,19 +24,18 @@ components:
           example: LHM Schreiben Extern vom 11.11.2016 v101
         objid:
           type: string
-          description: >-
+          description: |
             Zugehöriges Dokument, Objekt-ID (COO-Adresse) des Dokuments, in dem
             das Schriftstück ersetzt worden ist.
           example: COO.1.2301.1.1042465
         objname:
           type: string
-          description: >-
+          description: |
             Objektname des Schriftgutobjekts
             (COOSYSTEM@1.1:objname)
           example: >-
             Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20 011-4-0006-0006)
-
     UpdateContentObjectDTO:
       type: object
       properties:

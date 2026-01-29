@@ -5,3 +5,33 @@
 * jobposition: Welche Werte können übergeben werden (z.B. Sachbearbeiter, DocumentManager?)
 * Was genau ist damit gemeint: Den Fachverfahrensanbietern dürfen ausschließlich die
 gewünschten Stellen genannt werden?
+- siehe Verwaltungswerkzeug - Stelle - Referenz
+- Sachbearbeitung - OfficialInCharge
+- Registratur - Official
+- Sekretariat - Secretary
+- Leitung - Head
+- Fachadministration - OpAdm
+- Schriftgutverwaltung - DocumentManager
+
+=== ACL's
+* Welche Bedeutung hat procedureaccdef, wenn es bereits eine accdef für die Akte und jeden Vorgang gibt?
+- Wird beim ändern nicht auf die Vorgänge vererbt, sondern nur für neue Vorgänge.
+- Vorgänge können andere accdef als Akten haben
+
+=== Stornieren von Objekten
+* früher CancelObjectsGI
+* jetzt setsignatureobjectsGI?
+- Was hat die Signatur mit stornieren zu tun?
+
+=== Datentypen
+* objCreateBy, ObjChangeBy - Warum sind das Arrays und keine Strings?
+* Wie ist die Struktur von ArrayOfString?
+* ArrayOfString muss ggf. überall geändert werden für spezifische Description (z.B. filesubj bei ReadContentObjectResponse)
+* Woher kommt der Objektname eines Objektes, z.B. bei Schriftstück ändern ContentObjects
+* Woher kennt das Fachverfahren, welche Vorlagen es gibt (create outgoing, createInternal: doctemplate)
+entweder Suche nach Dokumenttypen oder
+=== Performance
+* Antwortzeiten und Systemlast testen bei Lesen der Akte mit vielen Vorgängen (GET files)
+* Datentypen im Request-Body: z.B. params bei POST internal - Kann das descrition Feld einfach nach oben gezogen werden? (Achtung RequestBody Type ändert sich von Multipart zu Jason, siehe CreateObjectAndImportToInboxDTO)
+* letzter Parameter (businessapp) in Ausgang lesen (Outgoing) - sollte eigentlich Schlagworte lt. DMS Spec sein!
+* Welche Wertebereiche haben bostate und objdocstate beim Vorgang lesen

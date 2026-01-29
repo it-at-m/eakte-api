@@ -11,17 +11,9 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         fileruntimefrom:
@@ -37,14 +29,7 @@ components:
           description: Objekt-ID (COO-Adresse) der Sachakte
           example: COO.1.2301.1.1042406
         filetype:
-          type: string
-          description: |2
-              Art des Vorgangs
-              Einer der drei fest definierten Werte:
-              * Elektronisch
-              * Papier
-              * Hybrid.
-          example: Elektronisch
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/filetype'
         objname:
           type: string
           description: Vorgangskennzeichen
@@ -78,17 +63,9 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         fileruntimefrom:
@@ -100,35 +77,30 @@ components:
           description: Bemerkung für Prozessverantwortliche
           example: Warte auf Rückmeldung
         filetype:
-          type: string
-          description: |2
-              Art des Vorgangs
-              Einer der drei kann beim Anlegen eines Vorgangs übergeben werden:
-              * Elektronisch
-              * Papier
-              * Hybrid.
-              Sofern hier ein falscher Wert oder kein Wert angegeben wird,
-              ändert sich der bestehende Wert des Vorgangs nicht.
-              Dies hat keine Auswirkung auf die weiteren zu ändernden Metadaten.
-          example: Elektronisch
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/filetype'
         filearchivetimeOffltdeadline:
           type: string
-          description: Archivierung
+          description: |
+            Transferfrist/
+            Wird bei der LHM nicht ausgewertet (Beschreibung siehe Lebenszyklus der Akte)
           example: 10 Jahre
         filelifetimeOffltdeadline:
           type: string
-          description: Lebenszeit der Akte
+          description: Aufbewahrungsfrist
           example: 10 Jahre
         offltdispstate:
           type: string
-          description: >-
-            Gewünschte Aussonderungsart,*            * „DISPSTATE_ARCHIVE“ - für „ A - Archivwürdig“
-
-            * „DISPSTATE_TRANSFER“ - für„Transfer“
-
+          description: |
+            Folgende Aussonderungsarten sind möglich
+            * „DISPSTATE_ARCHIVE“ - für „ A - Archivwürdig“
             * „DISPSTATE_DESTROY“ - für „ V - Vernichten“
-
-            * „DISPSTATE_TRANSFER_NO_EVIDENCE“ für „ Sammlungsgut“
-
             * „DISPSTATE_DM_B“ für „ B - Bewerten“
+            
+            Ergänzende Erläuterungen:
+            * „A - Archivwürdig“ - Dokumente, Vorgänge oder Akten sind nach Ablauf der Aufbewahrungsfrist dem zuständigen Archiv als archivwürdig zu übermitteln.
+            * „V - Vernichten“ - Dokumente, Vorgänge oder Akten können nach Ablauf der Aufbewahrungsfrist vernichtet werden.
+            * „B - Bewerten“ - Bewerten von Dokumenten, Vorgängen oder Akten, deren Archivwürdigkeit nicht durch eine Vorentscheidung festgelegt ist.
+            
+            Hinweis:\
+            Wird nicht beim Anlegen, sondern nur beim Ändern einer Betreffseinheit, Akte oder Vorgang gesetzt.
           example: DISPSTATE_ARCHIVE

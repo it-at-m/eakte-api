@@ -8,9 +8,11 @@ components:
       properties:
         reference:
           type: string
-          description: Referenz des Fachdatum
+          description: |
+            Referenz des Fachdatums\
+            Frage: Wo bekommt man den Namen des Fachdatums her?
           example: data_dognumber
         value:
           type: string
-          description: Wert des Fachdatum
+          description: Wert des Fachdatums
           example: '458965'

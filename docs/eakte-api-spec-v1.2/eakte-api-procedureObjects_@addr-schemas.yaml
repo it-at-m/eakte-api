@@ -6,9 +6,8 @@ components:
       properties:
         giobjecttype:
           type: array
-          description: |-
-            Vorgänge
-            Liste der Vorgänge der Akte
+          description: |
+            Liste aller Vorgänge der Akte
           example:
             - name: Beispielname
               id: COO.2150.9151.1.1206000

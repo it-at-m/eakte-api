@@ -8,10 +8,10 @@ components:
       properties:
         signaturetype:
           type: string
-          description: >-
-            COO-Adresse der Unterschriftenart
-
-            Anmerkung: Titel ist nicht eindeutig, da es im System mehrere
+          description: |
+            COO-Adresse der Unterschriftenart\
+            Anmerkung:\
+            Titel ist nicht eindeutig, da es im System mehrere
             Unterschriftenarten mit dem gleichen Namen/Titel gibt.
           example: COO.1.1001.1.6485
         remark:

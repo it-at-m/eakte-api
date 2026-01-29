@@ -6,10 +6,10 @@ components:
       properties:
         referrednumber:
           type: string
-          description: |2
-                Objekt-ID (COO-Adresse) des Vorgangs
-                Zugehöriger Vorgang (COOELAK@1.1001:referrednumber)
-                Wenn kein Vorgang angegeben wird, soll das erzeugte interne Dokument am Schreibtisch des Benutzers abgelegt werden.
+          description: |
+            Objekt-ID (COO-Adresse) des Vorgangs\
+            Zugehöriger Vorgang (COOELAK@1.1001:referrednumber)\
+            Wenn kein Vorgang angegeben wird, soll das erzeugte interne Dokument am Schreibtisch des Benutzers abgelegt werden.
           example: COO.1.2301.1.1042432
         shortname:
           type: string
@@ -19,40 +19,19 @@ components:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         deliverydate:
           type: string
-          description: Datum
+          description: Zustelldatum
           format: date-time
         filesubj:
-          type: string
-          description: >-
-            Betreff
-
-            Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung
-            &#10; in Abfragen unterstützt.
-          example: Rückfrage zum Antrag auf Baugenehmigung bzgl. Bebauungsplan
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         subfiletype:
-          type: string
-          description: >-
-            Dokumenttyp
-
-            Plausibilitätsprüfung: Der Name eines im System vorhandenen
-            Dokumenttyps muss angegeben werden.
-
-            Eine dazugehörige Vorlage (doctemplate) muss nicht verwendet werden.
-
-            Es können auch finalisierte Schriftstücke der Fachanwendung über
-            GiAttachmentType übertragen und verwendet werden.
-          example: Vorlagen
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/subfiletype'
         doctemplate:
           type: string
-          description: >-
-            Vorlage
-
-            Der Name einer im System vorhandenen Vorlage kann angegeben werden.
-
-            Es kann der Name einer Vorlage angegeben werden. In dieser Vorlage
-            können beispielsweise Metadaten automatisiert über DocProperty
-            ausgegeben werden.
-
+          description: |
+            Vorlage\
+            Der Name einer im System vorhandenen Vorlage kann angegeben werden.\
+            In dieser Vorlage können beispielsweise Metadaten 
+            automatisiert über DocProperty ausgegeben werden.\
             Die angegebene Vorlage muss im angegebenen Dokumenttyp enthalten
             sein.
 
@@ -64,9 +43,7 @@ components:
           description: Sonstige Anlagen
           example: Ausfüllhile Antrag auf Baugenehmigung
         objterms:
-          type: string
-          description: Schlagworte
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
       description: 'Parameter, das Interne Dokument spezifizieren'
 
     CreateInternatRequestDTO:

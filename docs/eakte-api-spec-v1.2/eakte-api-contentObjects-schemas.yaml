@@ -33,5 +33,5 @@ components:
       properties:
         objid:
           type: string
-          description: Objekt-ID (COO-Adresse) des erzeugten Schrifstückes.
+          description: Objekt-ID (COO-Adresse) des erzeugten Schriftstückes.
           example: COO.1.2301.1.1042465

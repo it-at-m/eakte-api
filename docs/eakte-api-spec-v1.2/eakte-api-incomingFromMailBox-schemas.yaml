@@ -28,9 +28,7 @@ components:
           description: Fremdes Geschäftszeichen
           example: A2016-10-2016-Landeshauptstadt-München
         filesubj:
-          type: string
-          description: Betreff
-          example: Schreiben der Firma Mustermann bezüglich Beantragung Baugenehmigung
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         documentremarks:
           type: string
           description: Dokumentbezogene Hinweise
@@ -40,6 +38,4 @@ components:
           description: Sonstige Anlagen
           example: Bebauungsplan
         objterms:
-          type: string
-          description: Schlagworte
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'

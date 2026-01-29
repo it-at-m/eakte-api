@@ -19,13 +19,13 @@ components:
           type: string
           format: date-time
         objchangedby:
-          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/ArrayOfstring'
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/ObjChangedBy'
         objowner:
           type: string
         objou:
           type: string
         fileextension:
-          type: string
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/fileExtension'
         contsize:
           type: string
       description: Liste der Dokumente mit Metadaten eines Vorgangs auslesen

@@ -9,23 +9,15 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         objname:
           type: string
           description: Ausgangskennzeichen
-          example: >-
+          example:
             Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20011-4-0006-0006)
         referrednumber:
@@ -42,9 +34,7 @@ components:
           format: date-time
           example: '2016-10-26T18:16:29+01:00'
         subfiletype:
-          type: string
-          description: Dokumenttyp
-          example: Vorlagen
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/subfiletype'
         incattachments:
           type: string
           description: Sonstige Anlagen
@@ -70,8 +60,7 @@ components:
             $ref: 'eakte-api--global-schemas.yaml#/components/schemas/MetadataReferenz'
         searchalso:
           type: string
-          description: Keine Funktion
-          example: Bescheide Firma Mustermann 2015
+          description: Dieser Parameter wird nicht genutzt
         businessapp:
           type: string
           description: Businessapp
@@ -87,16 +76,13 @@ components:
         objname:
           type: string
           description: Objektname des Objekts
-          example: |
-            Ausgangsschreiben zum Antrag
-            auf Baugenehmigung Firma
-            Mustermann
+          example:
+            Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20 011-4-0006-0006)
         giobjecttype:
           type: array
           description: |
-            Liste der Objektadressen und Namen
-            der Schriftstücke im Dokument.
+            Liste der Objektadressen und Namen der Schriftstücke im Dokument.
           items:
             $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Objektreferenz'
 
@@ -108,24 +94,17 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikolon am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         referredincoming:
           type: string
-          description: |2
-                  Bezug zu Eingang
-                  Bei Bedarf kann die COO-Adresse des Eingangs geändert werden,
-                  damit ein direkter Bezug zwischen Ein- und Ausgang hergestellt werden kann.
+          description: |
+            Bezug zu Eingang\
+            Bei Bedarf kann die COO-Adresse des Eingangs geändert werden,
+            damit ein direkter Bezug zwischen Ein- und Ausgang hergestellt werden kann.
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string

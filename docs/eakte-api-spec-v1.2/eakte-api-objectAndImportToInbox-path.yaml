@@ -1,7 +1,7 @@
 post:
   tags:
     - /objectAndImportToInbox
-  summary: Erzeugen eines Schiftstückes in einem Postkorb
+  summary: Erzeugen eines Schriftstückes in einem Postkorb
   operationId: CreateObjectAndImportToInbox
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'

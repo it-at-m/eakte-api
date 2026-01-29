@@ -28,17 +28,9 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         referrednumber:
@@ -47,14 +39,12 @@ components:
           example: COO.1.2301.1.1042432
         useou:
           type: boolean
-          description: >
+          description: |
             Der Wert wird nur ausgelesen wenn (referrednumber == NULL) d.h.
             keine Vorgangszuordnung stattfindet.
-
-            Wenn true, wird die Aktivität „Neuer Eingang“ an die OE (ohne
+            * Wenn true, wird die Aktivität „Neuer Eingang“ an die OE (ohne
             Benutzer vorgeschrieben).
-
-            Wenn kein Wert (oder false) übermittelt wird, wird die direkte
+            * Wenn kein Wert (oder false) übermittelt wird, wird die direkte
             Vorschreibung an den Benutzer durchgeführt.
           example: false
         delivery:
@@ -63,7 +53,9 @@ components:
           format: date-time
         foreignnr:
           type: string
-          description: Fremdes Geschäftszeichen
+          description: |
+            Fremdes Geschäftszeichen\
+            In diesem Feld kann - falls erforderlich - das Geschäftszeichen einer anderen Organisation eingetragen werden.
           example: A2016-10-2016-Landeshauptstadt-München
         documentremarks:
           type: string
@@ -84,26 +76,22 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         foreignnr:
           type: string
-          description: Fremdes Geschäftszeichen
+          description: |
+            Fremdes Geschäftszeichen\
+            In diesem Feld kann - falls erforderlich - das Geschäftszeichen einer anderen Organisation eingetragen werden.
           example: A2016-10-2016-Landeshauptstadt-München
         delivery:
           type: string
-          description: Eingangsdatum des Objekts
+          description: |
+            Eingangsdatum des Objekts\
+            In diesem Feld wird vermerkt, wann das Dokument eingegangen ist.
           format: date-time
         documentremarks:
           type: string
@@ -124,11 +112,11 @@ components:
           $ref: 'eakte-api-incomings_@addr-schemas.yaml#/components/schemas/UpdateIncomingAnfrageDTO'
         giattachmenttype:
           type: array
-          description: |2
-                                Schriftstücke
-                                Schriftstücke können über diesen Aufruf nicht geändert bzw. ersetzt werden.
-                                Neue Schriftstücke können bei Bedarf (zum Beispiel zum nachträglichen Hinzufügen von Anhängen
-                                vor dem Postversand) über diesen Aufruf hinzugefügt werden.
+          description: |
+            Liste der Schriftstücke\
+            Schriftstücke können über diesen Aufruf nicht geändert bzw. ersetzt werden.
+            Neue Schriftstücke können bei Bedarf (zum Beispiel zum nachträglichen Hinzufügen von Anhängen
+            vor dem Postversand) über diesen Aufruf hinzugefügt werden.
           items:
             type: string
             format: binary

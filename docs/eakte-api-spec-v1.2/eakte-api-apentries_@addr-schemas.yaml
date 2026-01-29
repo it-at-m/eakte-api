@@ -6,11 +6,7 @@ components:
       properties:
         giobjecttype:
           type: array
-          description: |-
-            Vorgänge
-            Liste der Vorgänge der Akte
-          example:
-            - name: Beispielname
-              id: COO.2150.9151.1.1206000
+          description: |
+            Liste der Vorgänge der Akte mit jeweils Bezeichner (Name) und COO-Adresse (ID) des Objekts
           items:
             $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Objektreferenz'

@@ -11,74 +11,41 @@ components:
           description: Titel
           example: 2016 Anträge Firma XY
         filesubj:
-          type: string
-          description: |2
-                      Betreff (mehrzeilig)
-                      Mehrzeilige Felder werden mit Zeilenumbrüchen oder HTML Kodierung &#10; in Abfragen unterstützt.
-          example: Alle Anträge der Firma XY aus dem Jahr 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Betreff'
         objterms:
-          type: string
-          description: >-
-            Schlagworte, Angabe der Schlagworte getrennt mit „;“. Kein Semikola
-            am Ende angeben.
-          example: Firma XY; Anträge; Anträge 2016
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Schlagworte'
         accdef:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         referrednumber:
           type: string
-          description: >
-            Objekt-ID (COO-Adresse) des Vorgangs
-
+          description: |
+            Objekt-ID (COO-Adresse) des Vorgangs\
             Wenn kein Vorgang angegeben wird, soll das erzeugte Ausgangsdokument
             am Schreibtisch des Benutzers abgelegt werden.
           example: COO.1.2301.1.1042432
         referredincoming:
           type: string
-          description: >
-            Bezug zu Eingang
-
+          description: |
+            Bezug zu Eingang\
             Bei Bedarf kann die COO-Adresse des Eingangs angegeben werden,
-
             damit ein direkter Bezug zwischen Ein- und Ausgang hergestellt
             werden kann.
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string
-          description: Termin (Datum/Uhrzeit)
+          description: Versanddatum (Datum/Uhrzeit)
           format: date-time
         subfiletype:
-          type: string
-          description: >
-            Dokumenttyp
-
-            Plausibilitätsprüfung: Der Name eines im System vorhandenen
-            Dokumenttyps muss angegeben werden.
-
-            Eine dazugehörige Vorlage (doctemplate) muss nicht verwendet werden.
-            Es können auch finalisierte
-
-            Schriftstücke der Fachanwendung über GiAttachmentType übertragen und
-            verwendet werden.
-          example: Test Dokumenttyp
+          $ref: 'eakte-api--global-schemas.yaml#/components/schemas/subfiletype'
         doctemplate:
           type: string
-          description: >
-            Vorlage
-
-            Der Name einer im System vorhandenen Vorlage kann angegeben werden.
-
-            Es kann der Name einer Vorlage angegeben werden.
-
+          description: |
+            Der Name einer im System vorhandenen Vorlage kann angegeben werden (COOELAK@1.1001:doctemplate).\
             In dieser Vorlage können beispielsweise Metadaten automatisiert über
-            DocProperty
-
-            ausgegeben werden.
-
+            DocProperty ausgegeben werden.\
             Die angegebene Vorlage muss im angegebenen Dokumenttyp enthalten
             sein.
-
-            Alternativ können finalisierte Schriftstücke auch über
-            GiAttachmentType übertragen werden.
+            Alternativ können finalisierte Schriftstücke auch über GiAttachmentType übertragen werden.
           example: LHM Schreiben Extern
         incattachments:
           type: string
@@ -110,7 +77,7 @@ components:
         objname:
           type: string
           description: Objektname des angelegten Ausgangdokuments
-          example: >-
+          example:
             Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20 011-4-0006-0006)
         giobjecttype:
