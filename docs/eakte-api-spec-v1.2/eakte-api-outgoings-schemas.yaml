@@ -49,7 +49,9 @@ components:
           example: LHM Schreiben Extern
         incattachments:
           type: string
-          description: Sonstige Anlagen
+          description: |
+            Sonstige Anlagen\
+            Freitextfeld, um zusätzliche Anlagen zu benennen, die nicht elektronisch erfasst wurden (z.B. Baupläne)
           example: Ausfüllhilfe Antrag auf Baugenehmigung
       description: 'Parameter, die den Ausgang spezifizieren'
 

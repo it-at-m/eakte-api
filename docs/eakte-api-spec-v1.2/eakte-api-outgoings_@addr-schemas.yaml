@@ -30,7 +30,7 @@ components:
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string
-          description: Termin (Datum/Uhrzeit)
+          description: Versanddatum (Datum/Uhrzeit)
           format: date-time
           example: '2016-10-26T18:16:29+01:00'
         subfiletype:
@@ -63,8 +63,10 @@ components:
           description: Dieser Parameter wird nicht genutzt
         businessapp:
           type: string
-          description: Businessapp
-          example: businessapp
+          description: |
+            Bezeichnung der Fachanwendung/
+            Dieser Parameter wird nicht weiter unterstützt, sondern über Header-Parameter x-application
+          example: Fachanwendung xyz
 
     UpdateOutgoingResponseDTO:
       type: object
@@ -108,7 +110,7 @@ components:
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string
-          description: Termin (Datum/Uhrzeit)
+          description: Versanddatum (Datum/Uhrzeit)
           format: date-time
           example: '2016-10-26T18:48:01+01:00'
         incattachments:
