@@ -3,7 +3,7 @@ openapi: 3.0.1
 info:
   title: DMS REST API
   description: REST-API for the eAkte Service
-  version: '1.2'
+  version: '1.2.5'
 
   # preliminary/dummy information:
   contact:
@@ -172,3 +172,18 @@ paths:
 
   '/proceduresFromTemplate':
     $ref: 'eakte-api-proceduresFromTemplate-path.yaml'
+
+  /userFormsData/{objaddress}:
+    $ref: 'eakte-api-userFormsData-path.yaml'
+
+  /completeProcedureBusinessData:
+    $ref: 'eakte-api-completeProcedureBusinessData-path.yaml'
+
+  /files/search:
+    $ref: 'eakte-api-files_search-path.yaml'
+
+  /procedures/search:
+    $ref: 'eakte-api-procedures_search-path.yaml'
+
+  /subjectArea/{objaddress}:
+    $ref: 'eakte-api-subjectArea_@addr-path.yaml'
