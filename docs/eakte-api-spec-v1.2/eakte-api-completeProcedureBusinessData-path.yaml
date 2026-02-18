@@ -1,0 +1,57 @@
+
+post:
+  tags:
+    - "/completeProcedureBusinessData"
+  summary: "Anlegen eines kompletten Vorgangs mit Fachdaten"
+  operationId: "CreateCompleteProcedureBusinessData"
+  parameters:
+    - name: "x-anwendung"
+      in: "header"
+      description: "Aufrufende Fachanwendung"
+      required: false
+      schema:
+        type: "string"
+      example: "SWH"
+    - name: "userlogin"
+      in: "header"
+      description: "Übergabe des Benutzer-Logins, von deren Berechtigung die Aktion\
+          \ durchgeführt werden soll."
+      required: false
+      schema:
+        type: "string"
+      example: "max.mustermann"
+    - name: "joboe"
+      in: "header"
+      description: "COO-ID der Organisationseinheit des Nutzers"
+      required: false
+      schema:
+        type: "string"
+      example: "COO.1.2300.1.847"
+    - name: "jobposition"
+      in: "header"
+      description: "Rolle, in der der Nutzer handelt"
+      required: false
+      schema:
+        type: "string"
+      example: "DocumentManager"
+  requestBody:
+    content:
+      multipart/form-data:
+        schema:
+          $ref: "eakte-api-completeProcedureBusinessData-schemas.yaml#/components/schemas/CreateCompleteProcedureBusinessDataRequestDTO"
+    required: true
+  responses:
+    "200":
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: "eakte-api-completeProcedureBusinessData-schemas.yaml#/components/schemas/CreateCompleteProcedureBusinessDataResponseDTO"
+    "401":
+      description: "Falscher oder fehlender technischer Nutzer."
+    "400":
+      description: "Aufruf ans DMS ist gescheitert. Im Body sind Details enthalten."
+    "500":
+      description: "Ein unerwarteter Fehler innerhalb der EAI ist aufgetreten."
+  security:
+    - basicAuthSecurityDefintion: []
