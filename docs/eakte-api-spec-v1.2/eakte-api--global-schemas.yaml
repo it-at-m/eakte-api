@@ -144,11 +144,18 @@ components:
         Angabe der Schlagworte getrennt mit „;“. Kein Semikola am Ende angeben.
 
         Hinweis:\
-        Aktuell ist es für Benutzer*innen nicht möglich, Schlagworte anzulegen oder zu ändern.
-        Bereits vorhandene Schlagworte können verwendet werden.\
+        Aktuell ist es für Benutzer*innen nicht möglich, Schlagworte über die Schnittstelle anzulegen oder zu ändern.
+        Bereits vorhandene Schlagworte in der eAkte können verwendet werden.\
+        Dazu gibt es einen gemeinsamen Katalog von Schlagworten für Akten, Vorgänge, 
+        die je OE durch Sachbearbeiter in der GUI angelegt werden können.\
         Wenn übergebene Schlagworte nicht gefunden werden, wird keine Fehlermeldung zurückgegeben.
-        Das Anlegen erfolgt dann ohne die angegebenen Schlagworte.\
-        Es ist in der Fachabteilung zu klären, ob und welche Schlagworte genutzt werden.
+        Das Anlegen erfolgt dann ohne die angegebenen Schlagworte.
+        
+        Es ist in der Fachabteilung zu klären, ob und welche Schlagworte im Fachverfahren genutzt werden, 
+        damit sie in der Akte vorab angelegt werden.\
+        Für die Schnittstelle kann eine spezifische Schlagwortliste (Oberbegriff, z.B. "Koi-Schlagworte") 
+        über die generische Suche abgerufen werden und 
+        für die Verschlagwortung von Schriftgutobjekten im Fachverfahren verwendet werden.
       example: Firma XY; Anträge; Anträge 2016
     Objektreferenz:
       type: object
