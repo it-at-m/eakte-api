@@ -1,0 +1,115 @@
+
+get:
+  tags:
+    - "/userFormsData"
+  summary: "Aktenübersicht auslesen"
+  operationId: "ReadUserFormsData"
+  parameters:
+    - name: "reference"
+      in: "query"
+      required: true
+      schema:
+        type: "string"
+    - name: "x-anwendung"
+      in: "header"
+      description: "Aufrufende Fachanwendung"
+      required: false
+      schema:
+        type: "string"
+      example: "SWH"
+    - name: "userlogin"
+      in: "header"
+      description: "Übergabe des Benutzer-Logins, von deren Berechtigung die Aktion\
+          \ durchgeführt werden soll."
+      required: false
+      schema:
+        type: "string"
+      example: "max.mustermann"
+    - name: "joboe"
+      in: "header"
+      description: "COO-ID der Organisationseinheit des Nutzers"
+      required: false
+      schema:
+        type: "string"
+      example: "COO.1.2300.1.847"
+    - name: "jobposition"
+      in: "header"
+      description: "Rolle, in der der Nutzer handelt"
+      required: false
+      schema:
+        type: "string"
+      example: "DocumentManager"
+    - name: "objaddress"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+  responses:
+    "200":
+      description: "OK"
+      content:
+        application/json:
+          schema:
+            $ref: "eakte-api-userFormsData-schemas.yaml#/components/schemas/ReadUserFormsDataResponseDTO"
+    "401":
+      description: "Falscher oder fehlender technischer Nutzer."
+    "400":
+      description: "Aufruf ans DMS ist gescheitert. Im Body sind Details enthalten."
+    "500":
+      description: "Ein unerwarteter Fehler innerhalb der EAI ist aufgetreten."
+
+put:
+  tags:
+    - "/userFormsData"
+  summary: "UserFormsData ändern"
+  operationId: "UpdateUserFormsData"
+  parameters:
+    - name: "x-anwendung"
+      in: "header"
+      description: "Aufrufende Fachanwendung"
+      required: false
+      schema:
+        type: "string"
+      example: "SWH"
+    - name: "userlogin"
+      in: "header"
+      description: "Übergabe des Benutzer-Logins, von deren Berechtigung die Aktion\
+          \ durchgeführt werden soll."
+      required: false
+      schema:
+        type: "string"
+      example: "max.mustermann"
+    - name: "joboe"
+      in: "header"
+      description: "COO-ID der Organisationseinheit des Nutzers"
+      required: false
+      schema:
+        type: "string"
+      example: "COO.1.2300.1.847"
+    - name: "jobposition"
+      in: "header"
+      description: "Rolle, in der der Nutzer handelt"
+      required: false
+      schema:
+        type: "string"
+      example: "DocumentManager"
+    - name: "objaddress"
+      in: "path"
+      required: true
+      schema:
+        type: "string"
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: "eakte-api-userFormsData-schemas.yaml#/components/schemas/UpdateUserFormsDataRequestDTO"
+    required: true
+  responses:
+    '204':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/204'
+    '400':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
+    '401':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
+    '500':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/500'

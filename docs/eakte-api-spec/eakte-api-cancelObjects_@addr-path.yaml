@@ -1,0 +1,28 @@
+put:
+  tags:
+    - /cancelObjects
+  summary: Schriftstück stornieren
+  description: |
+    Stornieren wird verwendet, wenn fälschlicherweise ein Dokument erstellt worden ist.\
+    Nach dem Stornieren kann das stornierte Objekt über die Schnittstelle nicht mehr ausgelesen werden.\
+    Das Aufheben von stornierten Objekten ist nur in der eGov-Suite möglich.\
+    Ein SOAP-Aufruf zum Aufheben einer Stornierung wird über die Schnittstelle nicht angeboten, 
+    da stornierte Objekte über die Schnittstelle nicht gelesen werden können.
+    
+    ToDo: bei allen Endpunkten sollen Links auf die Anwendungsfallbeschreibung eingefügt werden.
+  operationId: CancelObject
+  parameters:
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/objaddress'
+  responses:
+    '204':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/204'
+    '400':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
+    '401':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
+    '500':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/500'
