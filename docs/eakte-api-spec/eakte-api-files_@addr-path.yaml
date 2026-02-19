@@ -15,7 +15,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: 'eakte-api-file_@addr-schemas.yaml#/components/schemas/ReadFileResponseDTO'
+            $ref: 'eakte-api-files_@addr-schemas.yaml#/components/schemas/ReadFileResponseDTO'
     '400':
       $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
     '401':
@@ -37,7 +37,7 @@ put:
     content:
       application/json:
         schema:
-          $ref: 'eakte-api-file_@addr-schemas.yaml#/components/schemas/UpdateFileDTO'
+          $ref: 'eakte-api-files_@addr-schemas.yaml#/components/schemas/UpdateFileDTO'
     required: true
   responses:
     '200':
