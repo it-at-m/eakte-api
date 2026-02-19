@@ -35,7 +35,7 @@ für spezifische Description (z.B. filesubj bei ReadContentObjectResponse)
 z.B. bei Schriftstück ändern ContentObjects
 * Woher kennt das Fachverfahren, welche Vorlagen es gibt
 (create outgoing, createInternal: doctemplate)
-entweder Suche nach Dokumenttypen oder
+- Lösung: Suche in Menue Verwaltung nach Dokumenttypen
 
 === Performance
 * Antwortzeiten und Systemlast testen bei Lesen der Akte mit vielen Vorgängen (GET files)
