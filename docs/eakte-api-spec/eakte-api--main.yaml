@@ -6,9 +6,9 @@ info:
   version: '1.2.5'
 
   contact:
-    name: Landeshauptstadt München · IT-Referat · it@M · Competence Center eAkte
+    name: Competence Center eAkte
     url: https://it-at-m.github.io/eakte-api
-    email: <TBD>
+    email: schnittstelle.eakte@muenchen.de
 
   license:
     name: Apache 2.0
