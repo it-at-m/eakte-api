@@ -2,6 +2,7 @@ get:
   tags:
     - /subjectAreaFileObjects
   summary: Liste von Vorgängen auslesen
+  # falsche OperationId (synonym zu SOAP-Operation): muss sein "ReadSubjectAreaFileObjects"
   operationId: ReadSubjectAreaFile
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
