@@ -62,7 +62,19 @@ Wenn true, wird die Aktivität „Neuer Eingang“ an die OE
 Wenn kein Wert (oder false) übermittelt wird,
 wird die direkte Vorschreibung an den Benutzer durchgeführt.
 
-=== Fachdaten
+=== Fachdaten / Verfahrensdefinitionen
 * Woher kennt das Fachverfahren bei
 CreateCompleteProcedureBusinessData die COO-Adresse des betreffenden Fachdatums?
 * Wie kann man mehrere Fachdaten übergeben?
+* readuserformsdata
+- Was geau bedeutet die Beschreibung:
+Beim Lesen von Verfahrenseigenschaften aus der E-Akte
+(Operation ReadUserFormsData), werden zusätzlich zum Wert der Eigenschaften
+auch alle Schlüsselwerte zurückgegeben.
+Die Operation ReadUserFormsData liefert in ihrer Response
+die Liste von Strings zurück, um zu gewährleisten,
+dass beim Lesen der Verfahrensdaten auch symmetrisch
+der Wert im Format Array übergeben wird.
+- Müsste dann ein Array mit allen Verfahrensdefinitionen
+zurück geliefert werden (nicht String)
+- read ist mit array, aber responsetype ist nur ein string
