@@ -17,12 +17,12 @@ get:
         application/json:
           schema:
             $ref: "eakte-api-userFormsData-schemas.yaml#/components/schemas/ReadUserFormsDataResponseDTO"
-    "401":
-      description: "Falscher oder fehlender technischer Nutzer."
-    "400":
-      description: "Aufruf ans DMS ist gescheitert. Im Body sind Details enthalten."
-    "500":
-      description: "Ein unerwarteter Fehler innerhalb der EAI ist aufgetreten."
+    '400':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
+    '401':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
+    '500':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/500'
 
 put:
   tags:
