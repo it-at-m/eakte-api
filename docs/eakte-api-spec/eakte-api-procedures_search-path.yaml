@@ -2,38 +2,13 @@
 post:
   tags:
     - "/procedures"
-  summary: "Suche nach Vorgängen"
+  summary: "Suche nach Vorgängen über definierte Parameter"
   operationId: "SearchProcedure"
   parameters:
-    - name: "x-anwendung"
-      in: "header"
-      description: "Aufrufende Fachanwendung"
-      required: false
-      schema:
-        type: "string"
-      example: "SWH"
-    - name: "userlogin"
-      in: "header"
-      description: "Übergabe des Benutzer-Logins, von deren Berechtigung die Aktion\
-          \ durchgeführt werden soll."
-      required: false
-      schema:
-        type: "string"
-      example: "max.mustermann"
-    - name: "joboe"
-      in: "header"
-      description: "COO-ID der Organisationseinheit des Nutzers"
-      required: false
-      schema:
-        type: "string"
-      example: "COO.1.2300.1.847"
-    - name: "jobposition"
-      in: "header"
-      description: "Rolle, in der der Nutzer handelt"
-      required: false
-      schema:
-        type: "string"
-      example: "DocumentManager"
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
   requestBody:
     content:
       application/json:
@@ -41,7 +16,7 @@ post:
           $ref: "eakte-api-procedures_search-schemas.yaml#/components/schemas/SearchProcedureRequestDTO"
     required: true
   responses:
-    "200":
+    '200':
       description: "OK"
       content:
         application/json:
@@ -53,5 +28,4 @@ post:
       $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
     '500':
       $ref: 'eakte-api--default-responses.yaml#/components/responses/500'
-  security:
-    - basicAuthSecurityDefintion: []
+

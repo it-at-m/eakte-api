@@ -9,7 +9,14 @@ components:
       properties:
         subjareascope:
           type: "string"
-          description: " Der neue Aktenplaneintragstyp.\n Folgende Werte sind möglich:\n\
-            \ • Hauptgruppe\n • Obergruppe\n • Gruppe\n • Untergruppe\n • Betreffseinheit.\n\
-            \ Eine änderung darf nur erfolgen wenn aktenplaneintragstyp leer ist.\n"
+          description: |
+            Der neue Aktenplaneintragstyp.\
+            Folgende Werte sind möglich:
+            * Hauptgruppe
+            * Obergruppe
+            * Gruppe
+            * Untergruppe
+            * Betreffseinheit.
+            
+            Eine Änderung darf nur erfolgen wenn der Aktenplaneintragstyp leer ist.
           example: "\"subjareascope\": \"Betreffseinheit\""

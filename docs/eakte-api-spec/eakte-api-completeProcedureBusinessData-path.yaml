@@ -2,38 +2,39 @@
 post:
   tags:
     - "/completeProcedureBusinessData"
-  summary: "Anlegen eines kompletten Vorgangs mit Fachdaten"
+  summary: Ein kompletter Vorgang wird erstellt 
+    (d.h. mit einem Dokument & Schrifstück) bzw. 
+    einzelne Schriftstücke beim Vorgang ergänzt.
+  description: |
+    Sobald eine Sachakte über die Fachdaten gefunden wurde, 
+    (über die Parameter businessterm & businessvalue),
+    wird folgendermaßen vorgegangen:
+    
+    * Eingangsparameter Vorgangstitel (shortnameprocedure):\
+    Das System überprüft ob in der gefundenen Akte 
+    bereits ein Vorgang mit dem Titel exisitiert.
+      - Vorgang existiert bereits\
+    Navigieren in den Vorgang
+      - Vorgang existiert noch nicht\
+    Ein neuer Vorgang mit dem übergebenen Titel wird angelegt & 
+    in den Vorgang navigiert.
+    
+    * Eingangsparameter Dokumenttitel (shortnamedocument):\
+    Das System überprüft, ob in dem gefundenen Vorgang 
+    bereits ein Eingangsdokument mit dem Titel exisitiert.
+      - Eingangsdokument existiert bereits\
+    Navigieren in das Eingangsdokument
+      - Eingangsdokument existiert noch nicht\
+    Ein neues Eingangsdokument mit dem übergebenen Titel wird angelegt & 
+    in das Eingangsdokument navigiert.
+    
+    * Im entsprechenden Eingangsdokument wird das Schriftstück erzeugt.
   operationId: "CreateCompleteProcedureBusinessData"
   parameters:
-    - name: "x-anwendung"
-      in: "header"
-      description: "Aufrufende Fachanwendung"
-      required: false
-      schema:
-        type: "string"
-      example: "SWH"
-    - name: "userlogin"
-      in: "header"
-      description: "Übergabe des Benutzer-Logins, von deren Berechtigung die Aktion\
-          \ durchgeführt werden soll."
-      required: false
-      schema:
-        type: "string"
-      example: "max.mustermann"
-    - name: "joboe"
-      in: "header"
-      description: "COO-ID der Organisationseinheit des Nutzers"
-      required: false
-      schema:
-        type: "string"
-      example: "COO.1.2300.1.847"
-    - name: "jobposition"
-      in: "header"
-      description: "Rolle, in der der Nutzer handelt"
-      required: false
-      schema:
-        type: "string"
-      example: "DocumentManager"
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/userlogin'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/joboe'
+    - $ref: 'eakte-api--parameters.yaml#/components/parameters/jobposition'
   requestBody:
     content:
       multipart/form-data:
@@ -47,11 +48,9 @@ post:
         application/json:
           schema:
             $ref: "eakte-api-completeProcedureBusinessData-schemas.yaml#/components/schemas/CreateCompleteProcedureBusinessDataResponseDTO"
-    "401":
-      description: "Falscher oder fehlender technischer Nutzer."
-    "400":
-      description: "Aufruf ans DMS ist gescheitert. Im Body sind Details enthalten."
-    "500":
-      description: "Ein unerwarteter Fehler innerhalb der EAI ist aufgetreten."
-  security:
-    - basicAuthSecurityDefintion: []
+    '400':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/400'
+    '401':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/401'
+    '500':
+      $ref: 'eakte-api--default-responses.yaml#/components/responses/500'

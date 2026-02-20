@@ -36,6 +36,7 @@ z.B. bei Schriftstück ändern ContentObjects
 * Woher kennt das Fachverfahren, welche Vorlagen es gibt
 (create outgoing, createInternal: doctemplate)
 - Lösung: Suche in Menue Verwaltung nach Dokumenttypen
+* Was genau ist das Geschäftszeichen bei SearchFile und SearchProcedure?
 
 === Performance
 * Antwortzeiten und Systemlast testen bei Lesen der Akte mit vielen Vorgängen (GET files)
@@ -60,3 +61,8 @@ Wenn true, wird die Aktivität „Neuer Eingang“ an die OE
 (ohne Benutzer vorgeschrieben).
 Wenn kein Wert (oder false) übermittelt wird,
 wird die direkte Vorschreibung an den Benutzer durchgeführt.
+
+=== Fachdaten
+* Woher kennt das Fachverfahren bei
+CreateCompleteProcedureBusinessData die COO-Adresse des betreffenden Fachdatums?
+* Wie kann man mehrere Fachdaten übergeben?

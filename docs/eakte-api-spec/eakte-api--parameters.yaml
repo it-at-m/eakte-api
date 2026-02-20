@@ -28,7 +28,7 @@ components:
       description: |
         **Benutzer-Login** (Benutzer-Kontext für den SOAP-Aufruf)\
         Log-in-Name des Benutzerobjekts
-      required: false
+      required: true
       schema:
         type: string
       example: max.mustermann
@@ -81,7 +81,12 @@ components:
     propdocstate:
       name: propdocstate
       in: header
-      description: docstate Nummer
+      description: |
+        Aktueller Bearbeitungsstatus der darunterliegenden Objekte
+        * 10 = In Bearbeitung
+        * 20 = Suspendiert/Storniert
+        * 30 = Abgeschlossen
+        * 50 = Archiviert
       required: false
       schema:
         type: integer
@@ -90,7 +95,28 @@ components:
     propbostate:
       name: propbostate
       in: header
-      description: bostate
+      description: |
+        Bearbeitungsstatus der darunterliegenden Objekte/
+        Es muss die COO-Adresse des Bearbeitungsstatus übergeben werden. 
+        Die Liste kann aus dem jeweiligen System generiert werden.
+        
+        Je nach Bearbeitungsschritt mit dem Objekt können folgende (beispielhafte) Status vorliegen:
+        * Erstellt
+        * Weggelegt
+        * z.A. verfügt
+        * Schlusszeichnung
+        * Schlusszeichnung abgelehnt
+        * Billigung
+        * Billigung abgelehnt
+        * Mitgezeichnet
+        * Mitzeichnung abgelehnt
+        * Versand erzeugt
+        * Versendet
+        * Zu Bewerten
+        * Bewertet
+        * Dem Archiv übermittelt
+        * Vom Archiv zurückgegeben bzw. Übernahme vom Archiv bestätigt
+        * Vernichtet
       required: false
       schema:
         type: string

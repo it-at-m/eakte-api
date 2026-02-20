@@ -15,12 +15,12 @@ components:
           example: "A1 01 01 01 01/00010/0001"
         objmlname:
           type: "string"
-          description: "Name"
-          example: "Vorgang 1"
+          description: "Name des Vorgangs"
+          example: "Vorgang Eins Name"
         filesubj:
           type: "string"
-          description: "Betreff"
-          example: "Betreff des Vorgangs"
+          description: "Betreff des Vorgangs"
+          example: "Vorgang Eins"
 
     SearchProcedureResponseDTO:
       type: "object"
