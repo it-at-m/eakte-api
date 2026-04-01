@@ -26,9 +26,9 @@ post:
     Navigieren in das Eingangsdokument
       - Eingangsdokument existiert noch nicht\
     Ein neues Eingangsdokument mit dem übergebenen Titel wird angelegt & 
-    in das Eingangsdokument navigiert.
-    
     * Im entsprechenden Eingangsdokument wird das Schriftstück erzeugt.
+    
+    in das Eingangsdokument navigiert.
   operationId: "CreateCompleteProcedureBusinessData"
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'

@@ -16,7 +16,7 @@ components:
           $ref: 'eakte-api--global-schemas.yaml#/components/schemas/Zugriffsdefinition'
         objname:
           type: string
-          description: Ausgangskennzeichen
+          description: Erledigungskennzeichen
           example:
             Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20011-4-0006-0006)
@@ -26,7 +26,7 @@ components:
           example: COO.1.2301.1.1042432
         referredincoming:
           type: string
-          description: Bezug zu Eingang
+          description: Bezug zum Eingang
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string
@@ -104,9 +104,9 @@ components:
         referredincoming:
           type: string
           description: |
-            Bezug zu Eingang\
+            Bezug zum Eingang\
             Bei Bedarf kann die COO-Adresse des Eingangs geändert werden,
-            damit ein direkter Bezug zwischen Ein- und Ausgang hergestellt werden kann.
+            damit ein direkter Bezug zwischen Eingang und Erledigung hergestellt werden kann.
           example: COO.1.2301.1.1042441
         outgoingdate:
           type: string

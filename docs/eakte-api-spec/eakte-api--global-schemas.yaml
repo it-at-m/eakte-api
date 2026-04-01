@@ -121,21 +121,33 @@ components:
       description: |
         Folgende Zugriffsdefinitionen sind möglich:
 
-        * "Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)"
-        * "Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit"
-        * "Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit und Zentralregistratur"
-        * "Zugriffsdefinition für Schriftgutobjekte des Eigentümers"
+        * "Eigene Organisationseinheit und Linienorganisation"
+        * "Eigener Mandant"
+        * "Eigene Organisationseinheit und Vorgesetzte"
+        * "Eigene Organisationseinheit und Vorgesetzte (ohne Zentralregistratur)"
+        * "Eigene Organisationseinheit"
+        * "Persönlich und Vorgesetzte"
+        * "Persönlich" (für Verschlusssachen)
+        * "Aktengebunden" (nur bei Vorgängen)
 
         Die Zugriffsdefinition wird jeweils auf die darunterliegenden Objekte vererbt, 
         d.h. 
         * wenn ein Wert für den Aktenplaneintrag eingetragen wird (empfohlen), 
         dann gilt dieser automatisch für alle darunter liegenden Akten, 
-        * entsprechend für alle Vorgänge einer Akte, wenn die Zugriffsdefinition bei der Akte eingetragen wurde und 
-        * entsprechend bei allen Dokumenten eines Vorgangs, wenn die Zugriffsdefinition bei dem Vorgang eingetragen wurde.
+        * entsprechend für alle Vorgänge einer Akte, 
+        wenn die Zugriffsdefinition bei der Akte eingetragen wurde und 
+        * entsprechend bei allen Dokumenten eines Vorgangs, 
+        wenn die Zugriffsdefinition bei dem Vorgang eingetragen wurde.
         
-        Wenn kein Wert übergeben wird, wird die auf dem jeweils höheren Objekt hinterlegte Zugriffsdefinition initialisiert.
-        Wurde auf dem Aktenplaneintrag keine Zugriffsdefinition festgelegt, wird die im System eingestellte Definition verwendet - Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)
-      example: Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit
+        Wenn kein Wert übergeben wird, 
+        wird die auf dem jeweils höheren Objekt hinterlegte Zugriffsdefinition initialisiert.
+        Wurde auf dem Aktenplaneintrag keine Zugriffsdefinition festgelegt, 
+        wird die im System eingestellte Definition verwendet - "Eigener Mandant".
+        
+        Wenn Vorgänge die Zugriffsdefinition und zusätzlich berechtigte Organisationseinheiten 
+        aus der übergeordneten Akte übernehmen sollen, 
+        muss "Aktengebunden" beim Vorgang angegeben werden.
+      example: Eigener Mandant
 
     Schlagworte:
       type: string
@@ -193,129 +205,69 @@ components:
     objclass:
       type: string
       description: |
-        Name der Objektklasse
-        (COOSYSTEM@1.1:objclass)
-        * Aktenplan
-        COOELAK@1.1001:Fileplan
-        * Aktenplaneintrag
-        COOELAK@1.1001:SubjectArea
-        * Ausgang
-        COOELAK@1.1001:Outgoing
-        * AutoCAD Zeichnung
-        FSCAUTOCAD@1.1001:Drawing
-        * Benutzer
-        COOSYSTEM@1.1:User
-        * Bericht
-        FSCAREXT@1.1001:Report
-        * Bild
-        FSCWEBCONT@1.1001:ImageObject
-        * Dokumentkategorie
-        FSCFOLIO@1.1001:DocumentCategory
-        * Dokumenttyp
-        COOELAK@1.1001:Subject
-        * Dokument
-        COOELAK@1.1001:SubFileDocument (bei Angabe dieser Objektklasse, sollten Eingangs-, und Ausgangsdokumente angezeigt werden)
-        * E-Mail (Microsoft Office Outlook)
-        COOMAPI@1.1:MailObject
-        * E-Mail (MIME)
-        FSCMIME@1.1001:MIMEObject
-        * Eingang
-        COOELAK@1.1001:Incoming
-        * Freemind Mindmap
-        CFGMUENCHEN@15.1700:FreemindMindmap
-        * Frist
-        ELAKGOV@1.1001:Deadline
-        * GIF-Objekt
-        FSCWEBCONT@1.1001:GIFObject
-        * Hewlett Packard Graphic Language
-        CFGMUENCHEN@15.1700:HPGraphicLanguage
-        * Inhalt (erweitert)
-        CFGMUENCHEN@15.1700:GenericContent
-        * Inhalt (unbekannter Typ)
-        GENCONT@1.1:ContentObject
-        * JPEG-Objekt
-        FSCWEBCONT@1.1001:JPEGObject
-        * Kostenstelle
-        CFGMUENCHEN@15.1700:CostCenter
-        * Medieninhalt
-        FSCDIGITALASSET@1.1001:DigitalAsset
-        * Microsoft Excel-Arbeitsblatt
-        COOMSOFFICE@1.1:ExcelObject
-        * Microsoft PowerPoint-Präsentation
-        COOMSOFFICE@1.1:PowerPointObject
-        * Microsoft Project-Objekt
-        COOMSPROJECT@1.1001:MSProject        t
-        * Microsoft Visio-Zeichnung
-        VISIO@1.1:VisioObject
-        * Microsoft Word-Objekt
-        COOMSOFFICE@1.1:WinWordObject
-        * OpenDocument Formel
-        FSCOOFFICE@1.1001:OOorgMathObject
-        * OpenOffice.org Vorlage
-        CFGMUENCHEN@15.1700:OOorgTemplateObject
-        * Ordner
-        COODESK@1.1:Folder
-        * Organisation
-        FSCFOLIO@1.1001:Organisation
-        * Organisationseinheit
-        COOSYSTEM@1.1:Group
-        * PDF-Dokument
-        FSCACROBAT@1.1:PDFObject
-        * Person
-        FSCFOLIO@1.1001:Person
-        * Personenakte
-        CFGMUENCHEN@15.1700:PersonalSubjectAreaFile
-        * PNG-Objekt
-        FSCWEBCONT@1.1001:PNGObject
-        * Postkorb
-        FSCVGOV@1.1001:Inbox
-        * Präsentation
-        FSCOOFFICE@1.1001:OOorgPresObject
-        * Projektordner
-        COOELAK@1.1001:ProjectFolder
-        * Rechnungsposition
-        CFGMUENCHEN@15.1700:InvoiceItem
-        * Rich Text Format
-        CFGMUENCHEN@15.1700:RichTextFormat
-        * Sachakte
-        DEPRECONFIG@15.1001:SubjectAreaFile
-        * Schlagwort
-        FSCTERM@1.1001:Term
-        * Schmierzettel
-        ELAKGOV@1.1001:FileMemo
-        * Schriftstück
-        COOSYSTEM@1.1:ContentObject
-        * Serena OpenProj Projekt
-        CFGMUENCHEN@15.1700:SerenaOpenProj
-        * Suchordner
-        COOQBOL@1.1:GenericStoredQBOL
-        * Tabelle
-        FSCOOFFICE@1.1001:OOorgCalcObject
-        * Teamroom
-        FSCTEAMROOM@1.1001:TeamRoom
-        * Text-Dokument
-        NOTE@1.1:NoteObject
-        Textbaustein
-        COOAR@1.1:BasicTextModuleEx_Web
-        * Textdokument
-        FSCOOFFICE@1.1001:OOorgTextObject
-        * TIFF-Objekt
-        FSCWEBCONT@1.1001:TIFFObject
-        * Verteiler
-        COOELAK@1.1001:DistributionList
-        * Verteilerliste
-        COOWF@1.1:ParticipantInstance
-        * Vorgang
-        DEPRECONFIG@15.1001:Procedure
-        * Vorlagenkategorie
-        COOTC@1.1001:TemplateCategory
-        * XDOMEA Paket
-        FSCGOVXMLDE@1.1001:XDOMEAPackage
-        * Zeichnung
-        FSCOOFFICE@1.1001:OOorgDrawObject
-        * Zip-Archiv
-        WINZIP@1.1001:WinZipObject
-      example: Ausgang
+        Name der Objektklasse (COOSYSTEM@1.1:objclass)
+        * Aktenplan (COOELAK@1.1001:Fileplan)
+        * Aktenplaneintrag (COOELAK@1.1001:SubjectArea)
+        * Erledigung (COOELAK@1.1001:Outgoing)
+        * AutoCAD Zeichnung (FSCAUTOCAD@1.1001:Drawing)
+        * Benutzer (COOSYSTEM@1.1:User)
+        * Bericht (FSCAREXT@1.1001:Report)
+        * Bild (FSCWEBCONT@1.1001:ImageObject)
+        * Dokumentkategorie (FSCFOLIO@1.1001:DocumentCategory)
+        * Dokumenttyp (COOELAK@1.1001:Subject)
+        * Dokument (COOELAK@1.1001:SubFileDocument) 
+        (bei Angabe dieser Objektklasse, sollten Eingangs-, und Erledigungsdokumente angezeigt werden)
+        * E-Mail (Microsoft Office Outlook) (COOMAPI@1.1:MailObject)
+        * E-Mail (MIME) FSCMIME(@1.1001:MIMEObject)
+        * Eingangsdokument (COOELAK@1.1001:Incoming)
+        * Freemind Mindmap (CFGMUENCHEN@15.1700:FreemindMindmap)
+        * Frist (ELAKGOV@1.1001:Deadline)
+        * GIF-Objekt (FSCWEBCONT@1.1001:GIFObject)
+        * Hewlett Packard Graphic Language (CFGMUENCHEN@15.1700:HPGraphicLanguage)
+        * Inhalt (erweitert) (CFGMUENCHEN@15.1700:GenericContent)
+        * Inhalt (unbekannter Typ) (GENCONT@1.1:ContentObject)
+        * JPEG-Objekt (FSCWEBCONT@1.1001:JPEGObject)
+        * Kostenstelle (CFGMUENCHEN@15.1700:CostCenter)
+        * Medieninhalt (FSCDIGITALASSET@1.1001:DigitalAsset)
+        * Microsoft Excel-Arbeitsblatt (COOMSOFFICE@1.1:ExcelObject)
+        * Microsoft PowerPoint-Präsentation (COOMSOFFICE@1.1:PowerPointObject)
+        * Microsoft Project-Objekt (COOMSPROJECT@1.1001:MSProject)        t
+        * Microsoft Visio-Zeichnung (VISIO@1.1:VisioObject)
+        * Microsoft Word-Objekt (COOMSOFFICE@1.1:WinWordObject)
+        * OpenDocument Formel (FSCOOFFICE@1.1001:OOorgMathObject)
+        * OpenOffice.org Vorlage (CFGMUENCHEN@15.1700:OOorgTemplateObject)
+        * Ordner (COODESK@1.1:Folder)
+        * Organisation (FSCFOLIO@1.1001:Organisation)
+        * Organisationseinheit (COOSYSTEM@1.1:Group)
+        * PDF-Dokument (FSCACROBAT@1.1:PDFObject)
+        * Person (FSCFOLIO@1.1001:Person)
+        * Personenakte (CFGMUENCHEN@15.1700:PersonalSubjectAreaFile)
+        * PNG-Objekt (FSCWEBCONT@1.1001:PNGObject)
+        * Postkorb (FSCVGOV@1.1001:Inbox)
+        * Präsentation (FSCOOFFICE@1.1001:OOorgPresObject)
+        * Projektordner (COOELAK@1.1001:ProjectFolder)
+        * Rechnungsposition (CFGMUENCHEN@15.1700:InvoiceItem)
+        * Rich Text Format (CFGMUENCHEN@15.1700:RichTextFormat)
+        * Sachakte (DEPRECONFIG@15.1001:SubjectAreaFile)
+        * Schlagwort (FSCTERM@1.1001:Term)
+        * Schmierzettel (ELAKGOV@1.1001:FileMemo)
+        * Schriftstück (COOSYSTEM@1.1:ContentObject)
+        * Serena OpenProj Projekt (CFGMUENCHEN@15.1700:SerenaOpenProj)
+        * Suchordner (COOQBOL@1.1:GenericStoredQBOL)
+        * Tabelle (FSCOOFFICE@1.1001:OOorgCalcObject)
+        * Teamroom (FSCTEAMROOM@1.1001:TeamRoom)
+        * Text-Dokument (NOTE@1.1:NoteObject)
+        * Textbaustein (COOAR@1.1:BasicTextModuleEx_Web)
+        * Textdokument (FSCOOFFICE@1.1001:OOorgTextObject)
+        * TIFF-Objekt (FSCWEBCONT@1.1001:TIFFObject)
+        * Verteiler (COOELAK@1.1001:DistributionList)
+        * Verteilerliste (COOWF@1.1:ParticipantInstance)
+        * Vorgang (DEPRECONFIG@15.1001:Procedure)
+        * Vorlagenkategorie (COOTC@1.1001:TemplateCategory)
+        * XDOMEA Paket (FSCGOVXMLDE@1.1001:XDOMEAPackage)
+        * Zeichnung (FSCOOFFICE@1.1001:OOorgDrawObject)
+        * Zip-Archiv (WINZIP@1.1001:WinZipObject)
+      example: Erledigung
 
     fileouobj:
       type: string
@@ -332,13 +284,19 @@ components:
       type: string
       description: |
         Folgende Zugriffsdefinitionen für neue Vorgänge der Akte sind möglich:
-        * "Zugriffsdefinition für Schriftgutobjekte (allgemein lesbar)"
-        * "Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit"
-        * "Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit und Zentralregistratur"
-        * "Zugriffsdefinition für Schriftgutobjekte des Eigentümers"
+        * "Eigene Organisationseinheit und Linienorganisation"
+        * "Eigener Mandant"
+        * "Eigene Organisationseinheit und Vorgesetzte"
+        * "Eigene Organisationseinheit und Vorgesetzte (ohne Zentralregistratur)"
+        * "Eigene Organisationseinheit"
+        * "Persönlich und Vorgesetzte"
+        * "Persönlich" (für Verschlusssachen)
+        * "Aktengebunden" (nur bei Vorgängen)
         
         Wenn kein Wert übergeben wird, wird die auf der Akte hinterlegte Zugriffsdefinition übernommen (empfohlen).
-      example: Zugriffsdefinition für Schriftgutobjekte der Organisationseinheit
+        Wenn Vorgänge die Zugriffsdefinition und zusätzlich berechtigte Organisationseinheiten
+        aus der übergeordneten Akte übernehmen sollen, muss "Aktengebunden" angegeben werden.
+      example: Eigener Mandant
 
     subfiletype:
       type: string
@@ -354,8 +312,8 @@ components:
     filetype:
       type: string
       description: |
-        Art des Vorgangs (COOELAK@1.1001:filetype)
-        Einer der drei kann beim Anlegen eines Vorgangs übergeben werden:
+        Art des originalen Typs des Vorgangs (COOELAK@1.1001:filetype)
+        Einer der drei Typen kann beim Anlegen eines Vorgangs angegeben werden:
         * Elektronisch
         * Papier
         * Hybrid

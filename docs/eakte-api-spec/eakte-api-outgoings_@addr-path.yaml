@@ -1,7 +1,7 @@
 get:
   tags:
     - /outgoings
-  summary: Ausgang lesen
+  summary: Erledigung lesen
   operationId: ReadOutgoing
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
@@ -26,7 +26,7 @@ get:
 put:
   tags:
     - /outgoings
-  summary: Ausgang ändern
+  summary: Erledigung ändern
   operationId: UpdateOutgoing
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'

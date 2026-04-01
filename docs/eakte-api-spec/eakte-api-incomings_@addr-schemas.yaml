@@ -42,7 +42,7 @@ components:
           description: |
             Der Wert wird nur ausgelesen wenn (referrednumber == NULL) d.h.
             keine Vorgangszuordnung stattfindet.
-            * Wenn true, wird die Aktivität „Neuer Eingang“ an die OE (ohne
+            * Wenn true, wird die Aktivität „Neue Erledigung“ an die OE (ohne
             Benutzer vorgeschrieben).
             * Wenn kein Wert (oder false) übermittelt wird, wird die direkte
             Vorschreibung an den Benutzer durchgeführt.

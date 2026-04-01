@@ -1,7 +1,7 @@
 post:
   tags:
     - /incomings
-  summary: Eingang anlegen
+  summary: Eingangsdokument anlegen
   operationId: CreateIncoming
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'

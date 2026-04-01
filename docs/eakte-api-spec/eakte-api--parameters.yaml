@@ -53,15 +53,19 @@ components:
       in: header
       description: |
         Referenz der Stelle (**Rolle des Nutzers** in der eAkte).
+        * Schriftgutverwaltung - DocumentManager
         * Sachbearbeitung - OfficialInCharge
+        * Fachadministration - OpAdm
         * Registratur - Official
         * Sekretariat - Secretary
         * Leitung - Head
-        * Fachadministration - OpAdm
-        * Schriftgutverwaltung - DocumentManager
+        * Archivar - Registrar
+        * Vorlagenadministrator - TemplateAdministrator
+        * Vorlagenverwaltung - TemplateManager
         
-        Es dürfen ausschließlich die Stellen genannt werden, 
-        die bei der LHM genutzt werden.\
+        Es dürfen ausschließlich die o.g. genannten Stellen der LHM verwendet werden.\
+        Bitte die englische Bezeichnung verwenden.
+        
         Die Rolle Fachadministrator ist bei Schnittstellen nicht erlaubt!
       required: false
       schema:
@@ -84,8 +88,9 @@ components:
       description: |
         Aktueller Bearbeitungsstatus der darunterliegenden Objekte
         * 10 = In Bearbeitung
-        * 20 = Suspendiert/Storniert
+        * 20 = Suspendiert (kann wieder aufgehoben werden)
         * 30 = Abgeschlossen
+        * 40 = Storniert (endgültig storniert)
         * 50 = Archiviert
       required: false
       schema:
@@ -96,9 +101,9 @@ components:
       name: propbostate
       in: header
       description: |
-        Bearbeitungsstatus der darunterliegenden Objekte/
+        Bearbeitungsstatus der darunterliegenden Objekte\
         Es muss die COO-Adresse des Bearbeitungsstatus übergeben werden. 
-        Die Liste kann aus dem jeweiligen System generiert werden.
+        Die Liste kann aus dem jeweiligen System generiert werden (Suche nach Status Komponentenobjekt im Verwaltungswerkzeug)
         
         Je nach Bearbeitungsschritt mit dem Objekt können folgende (beispielhafte) Status vorliegen:
         * Erstellt

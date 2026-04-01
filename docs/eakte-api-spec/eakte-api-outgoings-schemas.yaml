@@ -20,15 +20,15 @@ components:
           type: string
           description: |
             Objekt-ID (COO-Adresse) des Vorgangs\
-            Wenn kein Vorgang angegeben wird, soll das erzeugte Ausgangsdokument
+            Wenn kein Vorgang angegeben wird, soll das erzeugte Erledigungsdokument
             am Schreibtisch des Benutzers abgelegt werden.
           example: COO.1.2301.1.1042432
         referredincoming:
           type: string
           description: |
-            Bezug zu Eingang\
+            Bezug zum Eingang\
             Bei Bedarf kann die COO-Adresse des Eingangs angegeben werden,
-            damit ein direkter Bezug zwischen Ein- und Ausgang hergestellt
+            damit ein direkter Bezug zwischen Eingang und Erledigung hergestellt
             werden kann.
           example: COO.1.2301.1.1042441
         outgoingdate:
@@ -53,7 +53,7 @@ components:
             Sonstige Anlagen\
             Freitextfeld, um zusätzliche Anlagen zu benennen, die nicht elektronisch erfasst wurden (z.B. Baupläne)
           example: Ausfüllhilfe Antrag auf Baugenehmigung
-      description: 'Parameter, die den Ausgang spezifizieren'
+      description: 'Parameter, die die Erledigung spezifizieren'
 
     CreateOutgoingRequestBodyDTO:
       required:
@@ -74,11 +74,11 @@ components:
       properties:
         objid:
           type: string
-          description: Objekt-ID (COO-Adresse) des erzeugten Ausgangs.
+          description: Objekt-ID (COO-Adresse) der erzeugten Erledigung.
           example: COO.1.2301.1.1042465
         objname:
           type: string
-          description: Objektname des angelegten Ausgangdokuments
+          description: Objektname des angelegten Erledigungsdokuments
           example:
             Ausgangsschreiben zum Antrag auf Baugenehmigung Firma Mustermann
             (0010 A20 011-4-0006-0006)

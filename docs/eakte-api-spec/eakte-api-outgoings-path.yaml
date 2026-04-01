@@ -1,7 +1,7 @@
 post:
   tags:
     - /outgoings
-  summary: Ausgang anlegen
+  summary: Erledigung anlegen
   operationId: CreateOutgoing
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'

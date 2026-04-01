@@ -7,7 +7,7 @@ components:
         Referenz der Objektklasse
         * Aktenplan COOELAK@1.1001:Fileplan
         * Aktenplaneintrag COOELAK@1.1001:SubjectArea
-        * Ausgang COOELAK@1.1001:Outgoing
+        * Erledigung COOELAK@1.1001:Outgoing
         * AutoCAD Zeichnung FSCAUTOCAD@1.1001:Drawing
         * Benutzer COOSYSTEM@1.1:User
         * Bericht FSCAREXT@1.1001:Report
@@ -15,7 +15,7 @@ components:
         * Dokumentkategorie FSCFOLIO@1.1001:DocumentCategory
         * Dokumenttyp COOELAK@1.1001:Subject
         * Dokument  COOELAK@1.1001:SubFileDocument (bei Angabe dieser Objektklasse, sollten Eingangs-, und
-        Ausgangsdokumente angezeigt werden)
+        Erledigungsdokumente angezeigt werden)
         * E-Mail (Microsoft Office Outlook) COOMAPI@1.1:MailObject
         * E-Mail (MIME) FSCMIME@1.1001:MIMEObject
         * Eingang COOELAK@1.1001:Incoming

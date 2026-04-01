@@ -3,6 +3,7 @@ post:
   tags:
     - /files
   summary: Akte anlegen
+  description: Sachakten können nur in Aktenplaneinträgen des Aktenplaneintragstyps „Betreffseinheit“ angelegt werden.
   operationId: CreateFile
   parameters:
     - $ref: 'eakte-api--parameters.yaml#/components/parameters/x_anwendung'
