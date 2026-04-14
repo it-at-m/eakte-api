@@ -181,6 +181,16 @@ components:
         - name: Beispielname
           id: COO.2150.9151.1.1206000
 
+    UserFormsReferenz:
+      type: object
+      properties:
+        lhmbai_15_1700_ufreference:
+          type: string
+        lhmbai_15_1700_ufvalue:
+          type: array
+          items:
+            type: string
+
     fileruntimefrom:
       type: string
       description: |
